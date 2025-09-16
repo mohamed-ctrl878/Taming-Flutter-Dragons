@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mentorship - React App</title>
+    <meta name="description" content="Free mentorship program offering educational trips to reward hard-working students. Join our community and unlock your potential!">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/styles/main.css">
+    
+    <!-- React Development Scripts -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-router-dom@6/dist/umd/react-router-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- React root element -->
+    <div id="root"></div>
+    
+    <!-- React Application -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        const { BrowserRouter: Router, Routes, Route, Link, useLocation, useNavigate } = ReactRouterDOM;
+
+        // Import helper functions (simplified for inline usage)
+        const getConfig = () => {
+          try {
+            // In a real app, this would fetch from the JSON file
+            // For now, we'll use a fallback config
+            return {
+              site: { name: 'MentorHub' },
+              navigation: [
+                { id: 'home', text: 'Home', href: '/', icon: '🏠' },
+                { id: 'roadmap', text: 'Roadmap', href: '/roadmap', icon: '🗺️' },
+                { id: 'resources', text: 'Resources', href: '/resources', icon: '📚' },
+                { id: 'mentors', text: 'Mentors', href: '/mentor-matching', icon: '👥' }
+              ],
+              contact: {
+                email: 'support@mentorhub.org',
+                phone: '+1 (555) 123-HELP',
+                social: {
+                  github: 'https://github.com',
+                  linkedin: 'https://linkedin.com',
+                  twitter: 'https://twitter.com'
+                }
+              },
+              roadmap: {
+                title: 'Your Learning Roadmap',
+                subtitle: 'Track your progress through our structured mentorship program',
+                phases: [
+                  {
+                    id: 1,
+                    title: 'Foundation Phase',
+                    description: 'Build strong fundamentals',
+                    duration: 'Weeks 1-4',
+                    status: 'completed',
+                    milestones: [
+                      { id: 1, title: 'Initial Assessment', description: 'Complete skills assessment', completed: true },
+                      { id: 2, title: 'Mentor Match', description: 'Get paired with mentor', completed: true }
+                    ]
+                  },
+                  {
+                    id: 2,
+                    title: 'Growth Phase',
+                    description: 'Develop core skills',
+                    duration: 'Weeks 5-12',
+                    status: 'current',
+                    milestones: [
+                      { id: 3, title: 'First Project', description: 'Complete guided project', completed: false },
+                      { id: 4, title: 'Peer Collaboration', description: 'Work with other students', completed: false }
+                    ]
+                  }
+                ]
+              },
+              resources: {
+                title: 'Mentorship Resources',
+                subtitle: 'Links, tools, and materials for your learning journey',
+                categories: [
+                  {
+                    id: 'learning',
+                    title: '📚 Learning Materials',
+                    items: [
+                      { title: 'Khan Academy', description: 'Free courses in math, science, and more', url: 'https://www.khanacademy.org', type: 'external' },
+                      { title: 'MIT OpenCourseWare', description: 'Free university-level courses', url: 'https://ocw.mit.edu', type: 'external' }
+                    ]
+                  }
+                ]
+              },
+              achievements: [
+                { id: 1, title: 'First Steps', description: 'Completed initial assessment', icon: '🎯', date: '2024-01-15' },
+                { id: 2, title: 'Quick Learner', description: 'Finished first module', icon: '⚡', date: '2024-01-20' }
+              ],
+              mentors: [
+                { id: 1, name: 'Dr. Maria Rodriguez', title: 'Computer Science Professor', experience: '10 years', available: true, bio: 'Passionate about AI and machine learning', expertise: ['AI', 'Web Development', 'Career Guidance'] }
+              ]
+            };
+          } catch (error) {
+            console.error('Error loading config:', error);
+            return null;
+          }
+        };
+
+        const scrollToSection = (sectionId) => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+
+        // Notification Component
+        const Notification = () => {
+          const [notifications, setNotifications] = useState([]);
+
+          const addNotification = (message, type = 'info', duration = 5000) => {
+            const id = Date.now();
+            const notification = { id, message, type, duration };
+            setNotifications(prev => [...prev, notification]);
+            setTimeout(() => {
+              setNotifications(prev => prev.filter(notif => notif.id !== id));
+            }, duration);
+          };
+
+          useEffect(() => {
+            window.showNotification = addNotification;
+            return () => {
+              delete window.showNotification;
+            };
+          }, []);
+
+          return (
+            <div style={{ position: 'fixed', top: '100px', right: '20px', zIndex: 9999 }}>
+              {notifications.map((notification, index) => (
+                <div
+                  key={notification.id}
+                  style={{
+                    backgroundColor: notification.type === 'success' ? '#10b981' : 
+                                   notification.type === 'error' ? '#ef4444' : '#059669',
+                    color: 'white',
+                    padding: '1rem 1.5rem',
+                    borderRadius: '0.5rem',
+                    marginBottom: '0.5rem',
+                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                    maxWidth: '400px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem'
+                  }}
+                >
+                  <span>{notification.type === 'success' ? '✅' : notification.type === 'error' ? '❌' : 'ℹ️'}</span>
+                  <span>{notification.message}</span>
+                </div>
+              ))}
+            </div>
+          );
+        };
+
+        // Navigation Component
+        const Navigation = () => {
+          const [isMenuOpen, setIsMenuOpen] = useState(false);
+          const location = useLocation();
+          const config = getConfig();
+
+          const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+          const closeMenu = () => setIsMenuOpen(false);
+          const isActive = (href) => location.pathname === href;
+
+          return (
+            <nav className="navbar">
+              <div className="nav-container">
+                <div className="nav-logo">
+                  <Link to="/" onClick={closeMenu}>
+                    <i className="fas fa-graduation-cap"></i>
+                    <span>{config?.site?.name || 'MentorHub'}</span>
+                  </Link>
+                </div>
+                
+                <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
+                  {config?.navigation?.map((item) => (
+                    <Link
+                      key={item.id}
+                      to={item.href}
+                      className={`nav-link ${isActive(item.href) ? 'active' : ''}`}
+                      onClick={closeMenu}
+                    >
+                      <span className="nav-icon">{item.icon}</span>
+                      {item.text}
+                    </Link>
+                  ))}
+                </div>
+                
+                <div className="nav-toggle" onClick={toggleMenu}>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                  <span className="bar"></span>
+                </div>
+              </div>
+            </nav>
+          );
+        };
+
+        // Footer Component
+        const Footer = () => {
+          const config = getConfig();
+
+          return (
+            <footer className="footer">
+              <div className="container">
+                <div className="footer-content">
+                  <div className="footer-section">
+                    <div className="footer-logo">
+                      <i className="fas fa-graduation-cap"></i>
+                      <span>{config?.site?.name || 'MentorHub'}</span>
+                    </div>
+                    <p>Empowering students through personalized mentorship and curated learning resources.</p>
+                  </div>
+                  <div className="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                      <li><Link to="/">Home</Link></li>
+                      <li><Link to="/roadmap">Roadmap</Link></li>
+                      <li><Link to="/resources">Resources</Link></li>
+                      <li><Link to="/mentor-matching">Mentors</Link></li>
+                    </ul>
+                  </div>
+                  <div className="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i className="fas fa-envelope"></i> {config?.contact?.email}</p>
+                    <p><i className="fas fa-phone"></i> {config?.contact?.phone}</p>
+                  </div>
+                </div>
+                <div className="footer-bottom">
+                  <p>&copy; {new Date().getFullYear()} {config?.site?.name || 'MentorHub'}. All rights reserved.</p>
+                </div>
+              </div>
+            </footer>
+          );
+        };
+
+        // HomePage Component
+        const HomePage = () => {
+          const config = getConfig();
+
+          useEffect(() => {
+            document.title = `${config?.site?.name || 'MentorHub'} - Free Mentorship & Educational Trips`;
+          }, []);
+
+          return (
+            <>
+              <section className="hero">
+                <div className="hero-container">
+                  <div className="hero-content">
+                    <h1 className="hero-title">
+                      Welcome Back to Your <span className="highlight">Mentorship Journey</span>
+                    </h1>
+                    <p className="hero-subtitle">
+                      You're already part of our amazing community! Continue your path to success with 
+                      personalized mentorship and get ready for your educational trip rewards.
+                    </p>
+                    <div className="hero-buttons">
+                      <Link to="/roadmap" className="btn btn-primary">View My Progress</Link>
+                      <button className="btn btn-secondary" onClick={() => scrollToSection('next-steps')}>
+                        What's Next?
+                      </button>
+                    </div>
+                    <div className="hero-stats">
+                      <div className="stat">
+                        <span className="stat-number">500+</span>
+                        <span className="stat-label">Students Mentored</span>
+                      </div>
+                      <div className="stat">
+                        <span className="stat-number">50+</span>
+                        <span className="stat-label">Educational Trips</span>
+                      </div>
+                      <div className="stat">
+                        <span className="stat-number">100%</span>
+                        <span className="stat-label">Free Program</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="hero-image">
+                    <div className="hero-image-placeholder">
+                      <div className="floating-elements">
+                        <div className="floating-element">📚</div>
+                        <div className="floating-element">🎓</div>
+                        <div className="floating-element">✈️</div>
+                        <div className="floating-element">🌟</div>
+                        <div className="floating-element">🎯</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section className="about">
+                <div className="container">
+                  <div className="section-header">
+                    <h2>Making Dreams Come True</h2>
+                    <p>We believe that every hard-working student deserves recognition and support</p>
+                  </div>
+                  <div className="about-content">
+                    <div className="about-text">
+                      <h3>Our Mission</h3>
+                      <p>Happy Student Mentorship is dedicated to recognizing and rewarding students who demonstrate exceptional dedication to their studies.</p>
+                      <div className="mission-points">
+                        <div className="mission-point">
+                          <span className="icon">🎯</span>
+                          <div>
+                            <h4>Personalized Mentorship</h4>
+                            <p>One-on-one guidance tailored to your academic and career goals</p>
+                          </div>
+                        </div>
+                        <div className="mission-point">
+                          <span className="icon">🌍</span>
+                          <div>
+                            <h4>Educational Adventures</h4>
+                            <p>Reward trips that combine learning with unforgettable experiences</p>
+                          </div>
+                        </div>
+                        <div className="mission-point">
+                          <span className="icon">💝</span>
+                          <div>
+                            <h4>Completely Free</h4>
+                            <p>No hidden costs - our program is 100% free for qualifying students</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="about-image">
+                      <div className="about-image-placeholder">
+                        <p>Happy students on an educational trip</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+          );
+        };
+
+        // NotFound Component
+        const NotFoundPage = () => {
+          return (
+            <section className="hero">
+              <div className="hero-container">
+                <div className="hero-content" style={{ textAlign: 'center' }}>
+                  <h1 className="hero-title">
+                    <span className="highlight">404</span> - Page Not Found
+                  </h1>
+                  <p className="hero-subtitle">
+                    Sorry, the page you're looking for doesn't exist.
+                  </p>
+                  <div className="hero-buttons">
+                    <Link to="/" className="btn btn-primary">Go Home</Link>
+                    <Link to="/resources" className="btn btn-secondary">Browse Resources</Link>
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        };
+
+        // Simple placeholder components for other routes
+        const RoadmapPage = () => {
+          const config = getConfig();
+          return (
+            <section className="hero">
+              <div className="hero-container">
+                <div className="hero-content" style={{ textAlign: 'center' }}>
+                  <h1 className="hero-title">Your Learning <span className="highlight">Roadmap</span></h1>
+                  <p className="hero-subtitle">Track your progress through our structured mentorship program</p>
+                  <button 
+                    className="btn btn-primary" 
+                    onClick={() => window.showNotification?.('Roadmap feature coming soon!', 'info')}
+                  >
+                    View Progress
+                  </button>
+                </div>
+              </div>
+            </section>
+          );
+        };
+
+        const ResourcesPage = () => {
+          return (
+            <section className="hero resources-hero">
+              <div className="hero-container">
+                <div className="hero-content">
+                  <h1 className="hero-title">Learning <span className="highlight">Resources</span></h1>
+                  <p className="hero-subtitle">Essential tools, repositories, and materials to support your learning journey</p>
+                  <button 
+                    className="btn btn-primary" 
+                    onClick={() => window.showNotification?.('Resources feature coming soon!', 'info')}
+                  >
+                    Browse Resources
+                  </button>
+                </div>
+              </div>
+            </section>
+          );
+        };
+
+        const MentorMatchingPage = () => {
+          return (
+            <section className="hero">
+              <div className="hero-container">
+                <div className="hero-content" style={{ textAlign: 'center' }}>
+                  <h1 className="hero-title">Meet Your Perfect <span className="highlight">Mentor Match</span></h1>
+                  <p className="hero-subtitle">Our smart matching system connects you with mentors who understand your goals</p>
+                  <button 
+                    className="btn btn-primary" 
+                    onClick={() => window.showNotification?.('Mentor matching feature coming soon!', 'info')}
+                  >
+                    Find Mentor
+                  </button>
+                </div>
+              </div>
+            </section>
+          );
+        };
+
+        // Main App Component
+        const App = () => {
+          return (
+            <Router>
+              <div className="app">
+                <Navigation />
+                <main className="main-content">
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />
+                    <Route path="/mentor-matching" element={<MentorMatchingPage />} />
+                    <Route path="/roadmap" element={<RoadmapPage />} />
+                    <Route path="/resources" element={<ResourcesPage />} />
+                    <Route path="/repos" element={<ResourcesPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                  </Routes>
+                </main>
+                <Footer />
+                <Notification />
+              </div>
+            </Router>
+          );
+        };
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+    </script>
+</body>
+</html>

@@ -1,0 +1,655 @@
+{
+  "site": {
+    "name": "Happy Student Mentorship",
+    "description": "Empowering hard-working students through free mentorship and educational adventures",
+    "logo": "🌟 Happy Student Mentorship",
+    "year": "2024"
+  },
+  "student": {
+    "name": "Sarah",
+    "sessions": 8,
+    "progress": 75,
+    "goalsAchieved": 4,
+    "daysSinceStart": 12,
+    "currentMentor": {
+      "name": "Dr. Maria Rodriguez",
+      "title": "Senior Computer Science Professor",
+      "avatar": "Dr. M",
+      "specialty": "Computer Science & AI",
+      "experience": "8 years",
+      "bio": "Passionate about helping students discover their potential in technology and innovation.",
+      "matchScore": 95,
+      "tags": [
+        "AI & Machine Learning",
+        "Web Development",
+        "Career Guidance"
+      ]
+    }
+  },
+  "navigation": {
+    "items": [
+      {
+        "id": "home",
+        "label": "Home",
+        "href": "index.html",
+        "icon": "🏠"
+      },
+      {
+        "id": "roadmap",
+        "label": "Roadmap",
+        "href": "roadmap.html",
+        "icon": "🗺️"
+      },
+      {
+        "id": "mentors",
+        "label": "Mentors",
+        "href": "mentor-matching.html",
+        "icon": "👩‍🏫"
+      },
+      {
+        "id": "repos",
+        "label": "Resources",
+        "href": "repos.html",
+        "icon": "📚"
+      },
+      {
+        "id": "trips",
+        "label": "Trips",
+        "href": "index.html#trips",
+        "icon": "✈️"
+      },
+      {
+        "id": "stories",
+        "label": "Stories",
+        "href": "index.html#testimonials",
+        "icon": "💬"
+      }
+    ]
+  },
+  "mentors": [
+    {
+      "id": 1,
+      "name": "Dr. James Chen",
+      "title": "Environmental Scientist",
+      "experience": "12 years",
+      "avatar": "Dr. J",
+      "availability": "available",
+      "tags": [
+        "Climate Science",
+        "Research Methods",
+        "Sustainability"
+      ],
+      "description": "Passionate about environmental conservation and helping students understand the impact of climate change.",
+      "stats": {
+        "students": 15,
+        "rating": 4.9
+      },
+      "matchScore": 87
+    },
+    {
+      "id": 2,
+      "name": "Prof. Sarah Williams",
+      "title": "History Professor",
+      "experience": "8 years",
+      "avatar": "Prof. S",
+      "availability": "busy",
+      "tags": [
+        "Ancient History",
+        "Research Writing",
+        "Critical Thinking"
+      ],
+      "description": "Specializes in making history engaging and relevant to modern students through interactive learning.",
+      "stats": {
+        "students": 22,
+        "rating": 4.8
+      },
+      "matchScore": 92
+    },
+    {
+      "id": 3,
+      "name": "Mr. Tech Patel",
+      "title": "Software Engineer",
+      "experience": "6 years",
+      "avatar": "Mr. T",
+      "availability": "available",
+      "tags": [
+        "Web Development",
+        "Programming",
+        "Career Guidance"
+      ],
+      "description": "Former startup founder who loves teaching practical programming skills and entrepreneurship.",
+      "stats": {
+        "students": 18,
+        "rating": 4.9
+      },
+      "matchScore": 96
+    },
+    {
+      "id": 4,
+      "name": "Dr. Angela Foster",
+      "title": "Business Strategy Consultant",
+      "experience": "10 years",
+      "avatar": "Dr. A",
+      "availability": "available",
+      "tags": [
+        "Business Strategy",
+        "Leadership",
+        "Economics"
+      ],
+      "description": "Helps students develop business acumen and leadership skills for future career success.",
+      "stats": {
+        "students": 12,
+        "rating": 5.0
+      },
+      "matchScore": 89
+    }
+  ],
+  "trips": [
+    {
+      "id": "historical",
+      "title": "Historical Discovery Tours",
+      "icon": "🏛️",
+      "description": "Visit museums, historical sites, and cultural landmarks while learning about our rich heritage.",
+      "features": [
+        {
+          "icon": "🎓",
+          "text": "Educational guides"
+        },
+        {
+          "icon": "📸",
+          "text": "Memory making"
+        },
+        {
+          "icon": "🤝",
+          "text": "Team building"
+        }
+      ]
+    },
+    {
+      "id": "science-tech",
+      "title": "Science & Technology Expeditions",
+      "icon": "🔬",
+      "description": "Explore cutting-edge research facilities, tech companies, and innovation hubs.",
+      "features": [
+        {
+          "icon": "💻",
+          "text": "Tech workshops"
+        },
+        {
+          "icon": "🔍",
+          "text": "Lab visits"
+        },
+        {
+          "icon": "🚀",
+          "text": "Innovation tours"
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "title": "Nature & Environmental Studies",
+      "icon": "🌿",
+      "description": "Connect with nature while learning about environmental conservation and sustainability.",
+      "features": [
+        {
+          "icon": "🌱",
+          "text": "Eco learning"
+        },
+        {
+          "icon": "🦋",
+          "text": "Wildlife study"
+        },
+        {
+          "icon": "🏔️",
+          "text": "Adventure"
+        }
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "id": 1,
+      "content": "The mentorship program completely changed my perspective on learning. The trip to the science museum was the highlight of my year!",
+      "author": {
+        "name": "Sarah Chen",
+        "title": "Computer Science Student",
+        "avatar": "🎓"
+      }
+    },
+    {
+      "id": 2,
+      "content": "My mentor helped me discover my passion for environmental science. The nature trip was both educational and inspiring!",
+      "author": {
+        "name": "Marcus Johnson",
+        "title": "Environmental Studies",
+        "avatar": "🌟"
+      }
+    },
+    {
+      "id": 3,
+      "content": "The free mentorship program gave me confidence and direction. The historical tour made learning come alive!",
+      "author": {
+        "name": "Elena Rodriguez",
+        "title": "History Major",
+        "avatar": "📚"
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "id": 1,
+      "title": "First Mentor Meeting",
+      "description": "Completed 12 days ago",
+      "status": "completed",
+      "icon": "✅"
+    },
+    {
+      "id": 2,
+      "title": "Set Learning Goals",
+      "description": "Completed 10 days ago",
+      "status": "completed",
+      "icon": "✅"
+    },
+    {
+      "id": 3,
+      "title": "Complete 5 Sessions",
+      "description": "Completed 3 days ago",
+      "status": "completed",
+      "icon": "✅"
+    },
+    {
+      "id": 4,
+      "title": "Mid-Progress Review",
+      "description": "Scheduled for next week",
+      "status": "pending",
+      "icon": "⏳"
+    },
+    {
+      "id": 5,
+      "title": "Complete Project",
+      "description": "Due in 2 weeks",
+      "status": "pending",
+      "icon": "🎯"
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1,
+      "date": {
+        "number": "18",
+        "month": "Sep"
+      },
+      "title": "Weekly Check-in",
+      "time": "4:00 PM - 5:00 PM",
+      "type": "Video Call"
+    },
+    {
+      "id": 2,
+      "date": {
+        "number": "22",
+        "month": "Sep"
+      },
+      "title": "Project Review",
+      "time": "3:00 PM - 4:00 PM",
+      "type": "In-Person"
+    }
+  ],
+  "achievements": [
+    {
+      "id": 1,
+      "title": "Consistency Champion",
+      "description": "Attended 5 consecutive sessions",
+      "date": "3 days ago",
+      "icon": "⭐"
+    },
+    {
+      "id": 2,
+      "title": "Goal Setter",
+      "description": "Created comprehensive learning goals",
+      "date": "1 week ago",
+      "icon": "🎯"
+    },
+    {
+      "id": 3,
+      "title": "Great Connection",
+      "description": "Excellent mentor-student match rating",
+      "date": "2 weeks ago",
+      "icon": "🤝"
+    }
+  ],
+  "contact": {
+    "email": "apply@happystudentmentorship.org",
+    "phone": "+1 (555) 123-MENTOR",
+    "supportEmail": "support@happystudentmentorship.org",
+    "supportPhone": "+1 (555) 123-HELP",
+    "mentorEmail": "mentors@happystudentmentorship.org"
+  },
+  "formOptions": {
+    "grades": [
+      {
+        "value": "middle-school",
+        "label": "Middle School"
+      },
+      {
+        "value": "high-school",
+        "label": "High School"
+      },
+      {
+        "value": "undergraduate",
+        "label": "Undergraduate"
+      },
+      {
+        "value": "graduate",
+        "label": "Graduate Student"
+      }
+    ],
+    "interests": [
+      {
+        "value": "science-tech",
+        "label": "Science & Technology"
+      },
+      {
+        "value": "history-culture",
+        "label": "History & Culture"
+      },
+      {
+        "value": "environment",
+        "label": "Environmental Studies"
+      },
+      {
+        "value": "arts",
+        "label": "Arts & Literature"
+      },
+      {
+        "value": "business",
+        "label": "Business & Economics"
+      },
+      {
+        "value": "other",
+        "label": "Other"
+      }
+    ],
+    "tripPreferences": [
+      {
+        "value": "historical",
+        "label": "Historical Discovery Tours"
+      },
+      {
+        "value": "science-tech",
+        "label": "Science & Technology Expeditions"
+      },
+      {
+        "value": "environment",
+        "label": "Nature & Environmental Studies"
+      },
+      {
+        "value": "any",
+        "label": "Any/No Preference"
+      }
+    ],
+    "mentorTypes": [
+      {
+        "value": "academic",
+        "label": "Academic Professor"
+      },
+      {
+        "value": "industry",
+        "label": "Industry Professional"
+      },
+      {
+        "value": "researcher",
+        "label": "Researcher"
+      },
+      {
+        "value": "entrepreneur",
+        "label": "Entrepreneur"
+      }
+    ],
+    "meetingFrequencies": [
+      {
+        "value": "weekly",
+        "label": "Weekly"
+      },
+      {
+        "value": "biweekly",
+        "label": "Bi-weekly"
+      },
+      {
+        "value": "monthly",
+        "label": "Monthly"
+      },
+      {
+        "value": "flexible",
+        "label": "Flexible"
+      }
+    ],
+    "communicationStyles": [
+      {
+        "value": "structured",
+        "label": "Structured & Formal"
+      },
+      {
+        "value": "casual",
+        "label": "Casual & Friendly"
+      },
+      {
+        "value": "mixed",
+        "label": "Mix of Both"
+      },
+      {
+        "value": "student-led",
+        "label": "Student-Led"
+      }
+    ]
+  },
+  "roadmap": {
+    "title": "Your Learning Roadmap",
+    "subtitle": "Track your progress through our structured mentorship program",
+    "phases": [
+      {
+        "id": 1,
+        "title": "Foundation Phase",
+        "description": "Build strong fundamentals and get comfortable with your learning environment",
+        "duration": "Weeks 1-4",
+        "status": "completed",
+        "milestones": [
+          {
+            "id": 1,
+            "title": "Initial Assessment",
+            "description": "Complete skills assessment and goal setting",
+            "completed": true
+          },
+          {
+            "id": 2,
+            "title": "Mentor Match",
+            "description": "Get paired with your perfect mentor",
+            "completed": true
+          },
+          {
+            "id": 3,
+            "title": "Learning Plan",
+            "description": "Create personalized learning roadmap",
+            "completed": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Growth Phase",
+        "description": "Develop core skills and work on practical projects",
+        "duration": "Weeks 5-12",
+        "status": "current",
+        "milestones": [
+          {
+            "id": 4,
+            "title": "Core Skills Development",
+            "description": "Master fundamental concepts in your area of study",
+            "completed": true
+          },
+          {
+            "id": 5,
+            "title": "First Project",
+            "description": "Complete your first guided project",
+            "completed": false
+          },
+          {
+            "id": 6,
+            "title": "Peer Collaboration",
+            "description": "Work with other students on group activities",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Mastery Phase",
+        "description": "Apply your knowledge to real-world challenges",
+        "duration": "Weeks 13-20",
+        "status": "upcoming",
+        "milestones": [
+          {
+            "id": 7,
+            "title": "Advanced Project",
+            "description": "Work on a comprehensive capstone project",
+            "completed": false
+          },
+          {
+            "id": 8,
+            "title": "Mentorship Skills",
+            "description": "Learn to mentor junior students",
+            "completed": false
+          },
+          {
+            "id": 9,
+            "title": "Trip Qualification",
+            "description": "Earn your educational trip reward",
+            "completed": false
+          }
+        ]
+      }
+    ]
+  },
+  "resources": {
+    "title": "Mentorship Resources",
+    "subtitle": "Links, tools, and materials for your learning journey",
+    "categories": [
+      {
+        "id": "learning",
+        "title": "📚 Learning Materials",
+        "description": "Curated educational content and courses",
+        "items": [
+          {
+            "title": "Interactive Coding Tutorials",
+            "description": "Step-by-step programming lessons",
+            "url": "https://www.codecademy.com",
+            "type": "external"
+          },
+          {
+            "title": "Khan Academy",
+            "description": "Free courses in math, science, and more",
+            "url": "https://www.khanacademy.org",
+            "type": "external"
+          },
+          {
+            "title": "MIT OpenCourseWare",
+            "description": "Free university-level courses",
+            "url": "https://ocw.mit.edu",
+            "type": "external"
+          }
+        ]
+      },
+      {
+        "id": "tools",
+        "title": "🛠️ Development Tools",
+        "description": "Essential tools for your learning journey",
+        "items": [
+          {
+            "title": "Visual Studio Code",
+            "description": "Popular code editor with great extensions",
+            "url": "https://code.visualstudio.com",
+            "type": "external"
+          },
+          {
+            "title": "Git & GitHub",
+            "description": "Version control and collaboration platform",
+            "url": "https://github.com",
+            "type": "external"
+          },
+          {
+            "title": "Figma",
+            "description": "Design and prototyping tool",
+            "url": "https://figma.com",
+            "type": "external"
+          }
+        ]
+      },
+      {
+        "id": "community",
+        "title": "👥 Community & Support",
+        "description": "Connect with peers and get help",
+        "items": [
+          {
+            "title": "Student Discord Server",
+            "description": "Chat with fellow students and mentors",
+            "url": "https://discord.gg/mentorship",
+            "type": "external"
+          },
+          {
+            "title": "Weekly Study Groups",
+            "description": "Join virtual study sessions",
+            "url": "#study-groups",
+            "type": "internal"
+          },
+          {
+            "title": "Mentor Office Hours",
+            "description": "Get help during scheduled office hours",
+            "url": "#office-hours",
+            "type": "internal"
+          }
+        ]
+      },
+      {
+        "id": "documentation",
+        "title": "📖 Program Documentation",
+        "description": "Official guides and policies",
+        "items": [
+          {
+            "title": "Student Handbook",
+            "description": "Complete guide to our mentorship program",
+            "url": "/docs/student-handbook.pdf",
+            "type": "download"
+          },
+          {
+            "title": "Code of Conduct",
+            "description": "Community guidelines and expectations",
+            "url": "/docs/code-of-conduct.pdf",
+            "type": "download"
+          },
+          {
+            "title": "Trip Guidelines",
+            "description": "Information about educational trip rewards",
+            "url": "/docs/trip-guidelines.pdf",
+            "type": "download"
+          }
+        ]
+      }
+    ]
+  },
+  "messages": {
+    "tips": [
+      "💡 Tip: Set small daily goals to maintain momentum!",
+      "🎯 Try the Pomodoro Technique for focused study sessions.",
+      "📚 Don't forget to review previous session notes before meetings.",
+      "🤝 Ask your mentor questions - they love helping curious students!",
+      "⭐ Celebrate small wins along your learning journey!",
+      "💡 Tip: Use the search bar to find mentors by expertise or interests!"
+    ],
+    "notifications": {
+      "sessionScheduled": "Session scheduled for next Tuesday at 4:00 PM!",
+      "messagesSent": "Message sent successfully!",
+      "preferencesUpdated": "Preferences updated! We'll use this to improve your match.",
+      "infoUpdated": "Information updated successfully! Your mentor will be notified of any important changes.",
+      "achievementUnlocked": "Achievement Unlocked!"
+    }
+  }
+}
