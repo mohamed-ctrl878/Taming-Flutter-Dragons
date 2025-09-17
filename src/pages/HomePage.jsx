@@ -126,17 +126,10 @@ const HomePage = memo(
           <div className="hero-container">
             <div className="hero-content">
               <h1 className="hero-title">
-                {studentData?.name ? (
-                  <>
-                    Welcome Back,{" "}
-                    <span className="highlight">{studentData.name}!</span>
-                  </>
-                ) : (
-                  <>
-                    Welcome Back to Your{" "}
-                    <span className="highlight">Mentorship Journey</span>
-                  </>
-                )}
+                <>
+                  Welcome Back to Your{" "}
+                  <span className="highlight">Mentorship Journey</span>
+                </>
               </h1>
               <p className="hero-subtitle">{heroSubtitle}</p>
               <div className="hero-buttons">
@@ -263,7 +256,7 @@ const HomePage = memo(
               </div>
               <div className="about-image">
                 <div className="about-image-placeholder">
-                  <p>Happy students on an educational trip</p>
+                  <img src="\abstract-timekeeper (1).svg" alt=" " />
                 </div>
               </div>
             </div>

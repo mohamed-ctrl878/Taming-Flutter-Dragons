@@ -50,7 +50,7 @@ const Footer = memo(({ siteData, contactData }) => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {siteData?.year || new Date().getFullYear()} {siteData?.name || 'Dragons Growth Journey'}. All rights reserved. Made with ❤️ for students.</p>
+          <p>&copy; {new Date().getFullYear()} {siteData?.name || 'Dragons Growth Journey'}. All rights reserved. Made with ❤️ for students.</p>
         </div>
       </div>
     </footer>

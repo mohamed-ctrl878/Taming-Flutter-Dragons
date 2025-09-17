@@ -372,7 +372,6 @@ p {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  
 }
 .floating-elements {
   position: absolute;
@@ -504,8 +503,17 @@ p {
   align-items: center;
   justify-content: center;
   color: var(--gray-500);
+  overflow: hidden;
+  max-height: min-content;
 }
-
+.about-image-placeholder {
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+}
+.about-image {
+  overflow: hidden;
+}
 /* ===== PROGRAM SECTION ===== */
 .program {
   padding: 6rem 0;
@@ -1769,7 +1777,7 @@ p {
 
 .quick-link-card:hover {
   transform: translateY(-4px);
-  border: var(--border-xl);
+  outline: var(--border-xl);
 }
 
 .quick-link-card.primary {
