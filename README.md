@@ -218,7 +218,7 @@ For support and questions:
 - Email: support@happystudentmentorship.org
 - Phone: +1 (555) 123-HELP
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Dragon illustrations and icons
 - Codecademy for design inspiration
