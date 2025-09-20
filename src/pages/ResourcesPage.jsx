@@ -5,6 +5,12 @@ const ResourcesPage = ({ siteData, resourcesData }) => {
   const [currentFilter, setCurrentFilter] = useState('all');
   const { showNotification } = useGlobalNotification();
   
+      useEffect(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, []);
   useEffect(() => {
     document.title = `${resourcesData?.title || 'Resources'} - ${siteData?.name || 'Happy Student Mentorship'}`;
   }, [siteData, resourcesData]);

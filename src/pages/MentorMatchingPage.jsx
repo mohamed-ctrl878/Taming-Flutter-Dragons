@@ -11,6 +11,12 @@ const MentorMatchingPage = memo(({ siteData, mentorsData, studentData }) => {
   const { showNotification } = useGlobalNotification();
   const heroAnimation = useFadeInUp();
   const statusAnimation = useFadeInUp();
+      useEffect(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }, []);
   
   // Memoize transformed mentor data to prevent re-processing
   const transformedMentorsData = useMemo(() => {

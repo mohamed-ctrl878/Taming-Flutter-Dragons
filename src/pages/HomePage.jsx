@@ -14,6 +14,12 @@ const HomePage = memo(
   }) => {
     const { showNotification } = useGlobalNotification();
 
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, []);
     // Animation hooks for various elements
     const heroAnimation = useFadeInUp();
     const aboutAnimation = useFadeInUp();
